@@ -1,5 +1,7 @@
 function! <SID>SaveSession(...)
     let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
+    let a:fname = fnamemodify(a:fname, ":p")
+
     let l:sess_dict = {}
     let l:sess_dict.home_dir = getcwd()
     let l:sess_dict.cur_tab = tabpagenr()
