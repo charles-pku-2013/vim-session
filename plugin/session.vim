@@ -1,6 +1,6 @@
 function! <SID>SaveSession(...)
-    let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
-    let a:fname = fnamemodify(a:fname, ":p")
+    let l:fname = (a:0 >= 1) ? a:1 : "session.vim"
+    let l:fname = fnamemodify(l:fname, ":p")
 
     let l:sess_dict = {}
     let l:sess_dict.home_dir = getcwd()
@@ -20,8 +20,8 @@ function! <SID>SaveSession(...)
     endfor
 
     let l:serialized = string(l:sess_dict)
-    call writefile([l:serialized], a:fname)
-    echo "session saved in " . a:fname
+    call writefile([l:serialized], l:fname)
+    echo "session saved in " . l:fname
 endfunction
 
 
@@ -30,15 +30,15 @@ function! s:compare(lhs, rhs)
 endfunctio
 
 function! <SID>LoadSession(...)
-    let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
-    let a:fname = fnamemodify(a:fname, ":p")
+    let l:fname = (a:0 >= 1) ? a:1 : "session.vim"
+    let l:fname = fnamemodify(l:fname, ":p")
 
-    if (!filereadable(a:fname))
-        echoerr "cannot read file " . a:fname
+    if (!filereadable(l:fname))
+        echoerr "cannot read file " . l:fname
         return
     endif
 
-    let l:serialized = readfile(a:fname)[0]
+    let l:serialized = readfile(l:fname)[0]
     execute "let l:sess_dict = " . l:serialized
 
     let l:home_dir = remove(l:sess_dict, "home_dir")
