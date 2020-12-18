@@ -43,7 +43,7 @@ function! <SID>LoadSession(...)
 
     let l:home_dir = remove(l:sess_dict, "home_dir")
     execute "cd " . l:home_dir
-    execute "SetHomeDir " . l:home_dir
+    execute "CD " . l:home_dir
 
     let l:cur_tab = remove(l:sess_dict, "cur_tab")
 
