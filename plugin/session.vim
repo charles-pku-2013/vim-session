@@ -1,5 +1,5 @@
 function! <SID>SaveSession(...)
-    let l:fname = (a:0 >= 1) ? a:1 : "session.vim"
+    let l:fname = (a:0 >= 1) ? a:1 : ".sess.vim"
     let l:fname = fnamemodify(l:fname, ":p")
 
     let l:sess_dict = {}
@@ -30,7 +30,7 @@ function! s:compare(lhs, rhs)
 endfunctio
 
 function! <SID>LoadSession(...)
-    let l:fname = (a:0 >= 1) ? a:1 : "session.vim"
+    let l:fname = (a:0 >= 1) ? a:1 : ".sess.vim"
     let l:fname = fnamemodify(l:fname, ":p")
 
     if (!filereadable(l:fname))
